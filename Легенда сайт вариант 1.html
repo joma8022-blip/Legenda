@@ -1,0 +1,2403 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Легенда</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box}
+body{bynthael
+margin:0;
+font-family:Inter,sans-serif;
+background:#0b0b0d;
+color:#fff;
+background-image:radial-gradient(circle at top right, rgba(230,57,70,.18), transparent 30%);
+}
+header{
+position:sticky;
+top:0;
+z-index:100;
+padding:18px 20px;
+font-size:34px;
+font-weight:700;
+color:#fff;
+background:rgba(10,10,12,.88);
+backdrop-filter:blur(12px);
+border-bottom:1px solid rgba(255,255,255,.08);
+text-align:left;
+box-shadow:0 10px 30px rgba(0,0,0,.35);
+}
+.container{max-width:1200px;margin:auto;padding:18px}
+.btn{
+background:linear-gradient(135deg,#18181c,#26262d);
+border:1px solid rgba(255,255,255,.08);
+border-radius:22px;
+padding:18px;
+margin-bottom:12px;
+cursor:pointer;
+transition:.3s;
+font-weight:600;
+box-shadow:0 10px 30px rgba(0,0,0,.25);
+}
+.btn:hover{transform:translateY(-3px)}
+.grid,.dish-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:12px;
+}
+.card,.dish-card{
+background:#141418;
+border:1px solid rgba(255,255,255,.07);
+border-radius:24px;
+overflow:hidden;
+transition:.35s;
+box-shadow:0 15px 35px rgba(0,0,0,.35);
+}
+.card:hover,.dish-card:hover{
+transform:translateY(-8px);
+box-shadow:0 20px 45px rgba(230,57,70,.25);
+}
+.card img,
+.dish-card img{
+width:100%;
+aspect-ratio:1/1;
+object-fit:cover;
+display:block;
+}
+
+.dish-card img[src=""]{
+display:none;
+}
+
+.dish-card:has(img[src=""]){
+min-height:150px;
+display:flex;
+align-items:center;
+justify-content:center;
+background:
+linear-gradient(135deg,#1a1a20,#25252d);
+border:1px solid rgba(255,255,255,.08);
+}
+
+.dish-card:has(img[src=""]) .dish-info{
+width:100%;
+padding:24px;
+flex-direction:column;
+align-items:center;
+text-align:center;
+gap:12px;
+}
+
+.dish-card:has(img[src=""]) h3{
+font-size:20px;
+}
+
+.dish-card:has(img[src=""]) p{
+font-size:18px;
+}
+
+
+.card p{
+font-size:18px;
+font-weight:700;
+padding:14px;
+margin:0;
+color:#fff;
+}
+.tabs{
+position:sticky;
+top:72px;
+display:flex;
+gap:10px;
+overflow:auto;
+padding:10px 0;
+background:#0b0b0d;
+z-index:20;
+}
+.tab{
+padding:10px 16px;
+background:#18181c;
+border-radius:999px;
+white-space:nowrap;
+cursor:pointer;
+border:1px solid rgba(255,255,255,.06);
+}
+.tab.active{
+background:linear-gradient(90deg,#e63946,#ff6b6b);
+color:#fff;
+}
+.dish-info{padding:14px}
+.dish-info h3{margin:0 0 6px;font-size:16px}
+.dish-info p{margin:0;color:#ff6b6b;font-weight:700}
+.section-title{
+color:#ff6b6b;
+font-size:22px;
+margin:25px 0 14px;
+}
+.modal{
+position:fixed;
+inset:0;
+background:#0b0b0d;
+padding:16px;
+z-index:9999;
+overflow:auto;
+}
+.modal img{
+width:100%;
+aspect-ratio:1/1;
+max-height:300px;
+object-fit:cover;
+border-radius:24px;
+display:block;
+}
+.modal-overlay{
+position:absolute;
+bottom:0;
+left:0;
+right:0;
+padding:24px;
+background:linear-gradient(to top,rgba(0,0,0,.85),transparent);
+border-radius:26px;
+}
+#modalDesc,#modalWeight{
+color:#ddd;
+font-size:15px;
+line-height:1.6;
+}
+.back{
+display:inline-block;
+padding:10px 16px;
+background:#18181c;
+border-radius:16px;
+margin-bottom:14px;
+cursor:pointer;
+}
+.hidden{display:none}
+.whatsapp-btn{
+position:fixed;
+right:20px;
+bottom:20px;
+left:auto;
+transform:none;
+background:linear-gradient(90deg,#25D366,#1aa952);
+padding:16px 22px;
+border-radius:18px;
+color:#fff;
+text-decoration:none;
+font-weight:700;
+box-shadow:0 15px 35px rgba(0,0,0,.4);
+}
+</style>
+
+<style>
+header:after{
+content:'';
+display:block;
+height:3px;
+margin-top:12px;
+background:linear-gradient(90deg,#e63946,#ff8a80,transparent);
+border-radius:20px;
+}
+.card,.dish-card{
+backdrop-filter:blur(10px);
+}
+.card img,.dish-card img{
+transition:.45s;
+}
+.card:hover img,.dish-card:hover img{
+transform:scale(1.06);
+}
+.dish-card{
+position:relative;
+}
+.dish-info{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:10px;
+}
+.dish-info h3{
+font-size:15px;
+font-weight:700;
+color:#fff;
+}
+.dish-info p{
+font-size:17px;
+padding:6px 10px;
+background:rgba(230,57,70,.12);
+border-radius:12px;
+}
+.modal-content{
+background:#141418;
+margin-top:16px;
+padding:18px;
+border-radius:22px;
+border:1px solid rgba(255,255,255,.08);
+}
+</style>
+
+<style>
+body{
+background:
+radial-gradient(circle at top right, rgba(230,57,70,.18), transparent 30%),
+linear-gradient(180deg,#070709,#111116);
+}
+.card{
+position:relative;
+overflow:hidden;
+}
+.card:before{
+content:'';
+position:absolute;
+inset:0;
+background:linear-gradient(to top,rgba(0,0,0,.5),transparent);
+z-index:1;
+}
+.card p{
+position:relative;
+z-index:2;
+margin-top:-70px;
+font-size:20px;
+text-shadow:0 4px 12px rgba(0,0,0,.7);
+}
+.card img{
+aspect-ratio:1/1;
+height:auto;
+}
+.section-title{
+border-left:4px solid #e63946;
+padding-left:12px;
+}
+.whatsapp-btn{
+border-radius:22px;
+font-size:16px;
+}
+
+
+
+
+/* MOBILE OPTIMIZATION */
+@media (max-width:768px){
+
+header{
+font-size:24px;
+padding:14px 16px;
+}
+
+.container{
+padding:12px;
+}
+
+/* категории */
+.grid{
+grid-template-columns:repeat(2,1fr);
+gap:10px;
+}
+
+/* блюда */
+.dish-grid{
+grid-template-columns:repeat(2,1fr);
+gap:10px;
+}
+
+.card,
+.dish-card{
+border-radius:18px;
+}
+
+/* квадрат фото */
+.card img,
+.dish-card img{
+aspect-ratio:1/1;
+}
+
+/* карточка категории */
+.card p{
+font-size:15px;
+padding:10px;
+margin-top:-55px;
+}
+
+/* название блюда */
+.dish-info{
+padding:10px;
+gap:6px;
+}
+
+.dish-info h3{
+font-size:13px;
+line-height:1.2;
+}
+
+.dish-info p{
+font-size:14px;
+padding:4px 8px;
+border-radius:10px;
+}
+
+/* подкатегории сверху */
+.tabs{
+top:60px;
+gap:6px;
+padding:8px 0;
+}
+
+.tab{
+padding:7px 12px;
+font-size:13px;
+border-radius:999px;
+}
+
+/* hero блок */
+h1{
+font-size:34px !important;
+}
+
+.hero p{
+font-size:16px;
+}
+
+/* whatsapp */
+.whatsapp-btn{
+right:14px;
+bottom:14px;
+padding:12px 16px;
+font-size:14px;
+border-radius:16px;
+}
+}
+
+
+
+</style>
+
+
+
+
+
+
+
+
+
+</head>
+
+<body>
+
+<header>Легенда</header>
+
+<div style="padding:20px;max-width:1200px;margin:auto">
+<div style="
+background:
+linear-gradient(rgba(10,10,12,.45),rgba(10,10,12,.85)),
+url('img/легенда-фон.jpg');
+background-size:cover;
+background-position:center;
+border-radius:34px;
+padding:60px 35px;
+border:1px solid rgba(255,255,255,.08);
+box-shadow:0 25px 60px rgba(0,0,0,.45)">
+<h1 style="margin:0;font-size:48px;color:#fff">Легенда</h1>
+<p style="color:#ddd;font-size:20px;max-width:520px">
+Меню завтраков • Банкетный зал вместимость до 150 гостей • Кальян • Уютный зал • Быстрая доставка и любимые блюда • блюдо на углях 
+</p>
+<div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:18px">
+<div style="background:#e63946;padding:14px 22px;border-radius:18px;font-weight:700">🔥 Популярное меню</div>
+<div style="background:rgba(255,255,255,.08);padding:14px 22px;border-radius:18px">🚚 Доставка</div>
+</div>
+</div>
+</div>
+
+
+
+<div id="home" class="container">
+  <div class="btn" onclick="openPage('menu')">🍽 Меню</div>
+  <div class="btn" onclick="openPage('address')">📍 Адрес</div>
+  <div class="btn" onclick="openPage('contacts')">📞 Контакты</div>
+</div>
+
+<div id="menu" class="container hidden">
+  <div class="back" onclick="goHome()">← Назад</div>
+  <div class="grid">
+    <div class="card" onclick="openCategory('Холодные закуски')"><img src="img/Холодные закуски.jpg"><p>Холодные закуски</p></div>
+
+
+
+
+  <div class="card" onclick="openCategory('Завтрак')"><img src="img/завтарки.jpg"><p>Завтрак</p></div>
+
+
+<div class="card" onclick="openCategory('Гарнир')"><img src="img/гарниры.jpg"><p>Гарнир</p></div>
+
+    <div class="card" onclick="openCategory('Закуски Пиво')"><img src="img/закуски на пиво.jpg"><p>Закуски Пиво</p></div>
+
+    <div class="card" onclick="openCategory('Салаты')"><img src="img/салаты.jpg"><p>Салаты</p></div>
+
+    <div class="card" onclick="openCategory('Супы')"><img src="img/супы.jpg"><p>Супы</p></div>
+
+    <div class="card" onclick="openCategory('Горячие блюдо')"><img src="img/горячее блюдо.jpg"><p>Горячие блюдо</p></div>
+
+    <div class="card" onclick="openCategory('Блюдо на углях')"><img src="img/блюдо на углях.jpg"><p>Блюдо на углях</p></div>
+
+    <div class="card" onclick="openCategory('Бар')"><img src="img/бар.jpg"><p>Бар</p></div>
+
+    <div class="card" onclick="openCategory('Кальян')"><img src="img/кальян.jpg"><p>Кальян</p></div>
+
+    <div class="card" onclick="openCategory('Десерт')"><img src="img/Десерт.jpg"><p>Десерт</p></div>
+
+  </div>
+</div>
+
+<div id="dishes" class="container hidden">
+  <div class="back" onclick="goMenu()">← Назад</div>
+  <h2 id="categoryTitle"></h2>
+  <div id="tabs" class="tabs"></div>
+  <div id="dishList"></div>
+</div>
+
+<!-- АДРЕС -->
+<div id="address" class="container hidden">
+  <div class="back" onclick="goHome()">← Назад</div>
+  <h2>📍 Адрес</h2>
+  <p>Москва, Метро Щелковская, улица Никитинская, 22А</p>
+</div>
+
+<!-- КОНТАКТЫ -->
+<div id="contacts" class="container hidden">
+  <div class="back" onclick="goHome()">← Назад</div>
+  <h2>📞 Контакты</h2>
+  <p>Телефон:  +79255391445</p>
+  <p>WhatsApp: +79916944949</p>
+  <p>Instagram: cafee.legenda</p>
+</div>
+<div id="modal" class="modal hidden">
+  <div class="back" onclick="closeModal()">← Назад</div>
+
+ <div class="modal-image">
+  <img id="modalImg">
+  <div class="modal-overlay">
+    <h2 id="modalTitle"></h2>
+    <p id="modalPrice"></p>
+  </div>
+</div>
+
+<!-- ВОТ ЗДЕСЬ СОСТАВ -->
+<div class="modal-content">
+  <p id="modalDesc"></p>
+  <p id="modalWeight"></p>
+</div>
+</div>
+
+
+
+<script>
+
+
+
+// BACK SWIPE / HISTORY SUPPORT
+
+function pushState(page){
+history.pushState({page},'', '');
+}
+
+window.onpopstate=function(){
+
+if(!modal.classList.contains('hidden')){
+closeModal();
+return;
+}
+
+if(!dishes.classList.contains('hidden')){
+goMenu();
+return;
+}
+
+if(!menu.classList.contains('hidden') ||
+!address.classList.contains('hidden') ||
+!contacts.classList.contains('hidden')){
+goHome();
+return;
+}
+};
+
+
+
+
+
+const menuData={
+"Холодные закуски":[
+{title:"Холодные закуски",items:[
+{name:"Овощная нарезка",
+weight: "700 г",
+price:"800р",
+desc:"ассорти из свежих бакинских овощей (помидоры, огурцы, перец",
+img:"img/овощная нарезка.jpg"},
+
+{name:"Маслины оливки",
+weight: "150 г",
+price:"450р",
+desc:"микс оливок и маслин, подаются с лимоном",
+img:"img/маслины.jpg"},
+
+{name:"Ассорти соленя",
+weight: "200 г",
+price:"270",
+img:"img/ассорти-соленья.jpg"},
+
+{name:"Мангал салат",
+weight: "200 г",
+price:"350₽",
+desc:"запеченные на мангале баклажаны, помидоры, перец болгарский",
+img:"img/Мангал салат.jpg"},
+
+
+{name:"Баклажаны с ореховой начинкой",
+weight: "150 г, 5 шт",
+price:"500₽",
+desc:"рулетики из баклажаны с ореховой начинкой",
+img:"img/Баклажаны с ореховой начинкой.jpg"},
+
+
+{name:"Мясное ассорти",
+weight: "300 г",
+price:"1000₽",
+desc:"бастурма, язык говяжий, ростбиф, куриный рулет, подается с хреном",
+img:"img/Мясное ассорти.jpg"},
+
+
+{name:"Рыбное ассорти",
+weight: "250 г",
+price:"2200₽",
+desc:"ассорти рыбных деликатесов: сиг холодного копчения, осетрина горячего копчения, семга слабосоленая, икра красная, подается с лимоном",
+img:"img/рыбно ассорти.jpg"},
+
+
+{name:"Сельд по Московский",
+weight: "150 г",
+price:"500₽",
+desc:"закуска из слабосоленой сельди с отварным картофелем, подается с красным луком",
+img:"img/сельд по московский.jpg"},
+
+
+
+{name:"Сырная тарелка",
+weight: "350 г",
+price:"800₽",
+desc:"ассорти сыров: сулугуни, брынза, овечий, шор, сыр чечел, подается с виноградным и грецкими орехом",
+img:"img/сырная тарелка.jpg"},
+
+
+{name:"Сюзма",
+weight: "100 г",
+price:"350₽",
+img:"img/сюзма.jpg"},
+
+{name:"Сыр брынза",
+weight: "120 г",
+price:"300₽",
+img:"img/сыр брынза.jpg"},
+
+
+{name:"Зелень ассорти",
+weight: "150 г",
+price:"350₽",
+img:"img/зелень ассорти.jpg"},
+
+
+{name:"Мацони",
+weight: "1 шт",
+price:"150₽",
+img:"img/мацони.jpg"}
+]}
+],
+
+
+
+
+
+
+
+
+
+"Завтрак":[{title:"Завтрак",items:[
+
+
+{name:"Яичница с помидорами",
+weight: "200 г",
+price:"450₽",
+img:"img/яичница с помидорами.jpg"},
+
+{name:"Масло сливочное с брынзой",
+weight: "150 г",
+price:"350₽",
+img:"img/масло сливочное с брынзой.jpg"},
+
+{name:"Глазунья",
+weight: "3шт",
+price:"300₽",
+img:"img/глазунья.jpg"},
+
+{name:"Омлет",
+weight: "200 г",
+price:"300₽",
+img:"img/омлет.jpg"},
+
+{name:"Лепешка",
+weight: "1шт",
+price:"60₽",
+img:"img/лепешка.jpg"},
+
+
+{name:"Кюкю с зеленью",
+weight: "200 г",
+price:"500₽",
+img:"img/кюкю.jpg"},
+
+
+
+{name:"Блины с мясом",
+weight: "2 шт",
+price:"450₽",
+img:"img/блини с мясам.jpg"},
+
+
+{name:"Блины с творогом",
+weight: "2 шт",
+price:"350₽",
+img:"img/блины с творогом.jpg"},
+
+
+{name:"Сырные шарики",
+weight: "7 шт",
+price:"350₽",
+img:"img/сырные шарики.jpg"},
+
+
+
+
+{name:"Сыр сулугуни жареный",
+weight: "150 г",
+price:"500₽",
+img:"img/сыр слугуни жаренный.jpg"},
+
+
+
+
+
+{name:"Хачапури по-имеретинский",
+weight: "500 г",
+price:"550₽",
+desc:"курица, капуста пекинская, помидоры, огурцы, соусы томатный и чесночный, соленые огурцы, картошка фри",
+img:"img/хачапури по имеретинский.jpg"}]}
+],
+
+
+
+
+
+
+
+
+
+
+"Гарнир":[{title:"Гарнир",items:[
+{name:"Рис отварная",
+weight: "150 г",
+price:"200₽",
+img:"img/рис отворной.jpg"},
+
+
+
+
+
+{name:"Гречка",
+weight: "150 г",
+price:"200₽",
+img:"img/гречка.jpg"},
+
+
+
+{name:"Картофельное пюре",
+weight: "150 г",
+price:"220₽",
+img:"img/картофелное  пюре.jpg"},
+
+
+{name:"Спаржа",
+weight: "150 г",
+price:"650₽",
+img:"img/спаржа.jpg"},
+
+
+{name:"Картошка фри",
+weight: "150 г",
+price:"200₽",
+img:"img/картошка фри.jpg"},
+
+
+
+
+{name:"Овощи жареная",
+weight: "250 г",
+price:"470₽",
+img:"img/овощи жаренная.jpg"},
+
+
+
+
+{name:"Брокколи на пару",
+weight: "150 г",
+price:"450₽",
+img:"img/брокколи отворной.jpg"}
+
+]}
+],
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"Закуски Пиво":[{title:"Закуски Пиво",items:[
+
+
+{name:"Гренки",
+weight: "150 г",
+price:"300 ₽",
+img:"img/гренки.jpg"},
+
+{name:"Нохут",
+weight: "200 г",
+price:"300 ₽",
+img:"img/нохуд.jpg"},
+
+{name:"Дюшбара",
+weight: "200 г",
+price:"550 ₽",
+img:"img/дюшбара жаренный к пиво закуски.jpg"},
+
+
+{name:"Сыр косичка",
+weight: "200 г",
+price:"300 ₽",
+img:"img/сыр косичка.jpg"},
+
+
+{name:"Креветка",
+weight: "200 г",
+price:"650 ₽",
+img:"img/креветка жаренный к закуска пиво.jpg"},
+
+
+{name:"фишташка",
+weight: "100 г",
+price:"300 ₽",
+img:"img/фисташка к закуски пиво.jpg"}
+
+
+
+
+]}
+],
+
+
+
+
+
+"Салаты":[{title:"Салаты",items:[
+
+
+
+{name:"Цезарь с курицей",
+weight: "220 г",
+price:"600 ₽",
+desc:"айсберг заправленные фирменным соусом цезарь обжаренной куриной грудкой, черри пармезаном и сухариками",
+img:"img/цезар с куритца.jpg"},
+
+
+
+{name:"Цезарь с креветками",
+weight: "220 г",
+price:"700 ₽",
+desc:"айсберг заправленный фирменными соусом цезарь, обжаренной креветками, черри пармемзаном и сухариками ",
+img:"img/салат сезар с креветками.jpg"},
+
+
+
+
+{name:"Чобан",
+weight: "250 г",
+price:"450 ₽",
+desc:"огурцы, помидоры, кинза, райхан, красный лук, оливки, масло, лимон",
+img:"img/чобан салат.jpg"},
+
+
+
+
+{name:"Салат с томатами и авокадо",
+weight: "200 г",
+price:"650 ₽",
+desc:"авокадо, помидоры, бальзамический соус, оливковое масло, лимон наршараб, киноа",
+img:"img/салат томат авакодо.jpg"},
+
+
+
+
+{name:"Салат капрезе",
+weight: "250 г",
+price:"900 ₽",
+desc:"сочные помидоры подаются с нежным сыром моцарелло под бальзамическим крем-соусом, подается с соусом песта",
+img:"img/салат капреза.jpg"},
+
+
+{name:"Салат столичный с куриным филе",
+weight: "200 г",
+price:"450 ₽",
+desc:"классический оливье, подается с курицей, завправляется майонезом, украшается перепелиным яйцом",
+img:"img/салат оливие.jpg"},
+
+
+
+{name:"Салат овощной с сыром сулугуни",
+weight: "250 г",
+price:"650 ₽",
+desc:"помидор, огурцы, болгарский перец, оливковое масло, зелень, лук, сыр сулугуни",
+img:"img/салат с сыром сулугуни.jpg"},
+
+
+
+{name:"Легенда салат из телятина",
+weight: "250 г",
+price:"950 ₽",
+desc:"теплый сытный салат, телятина, авокадо, помидор черри, микс салат, кедровые орешки, сыр пармезан, сливки, соус бальзамик",
+img:"img/легенда салат.jpg"},
+
+
+
+{name:"Теплый салат из хрустящих баклажанов с помидором",
+weight: "200 г",
+price:"600 ₽",
+desc:"обжаренный в сладком соусе чили, хрустящий баклажан с помидорами и свежей зеленью",
+img:"img/салат хрустяший баклажан.jpg"}]}
+],
+
+
+
+
+"Супы":[{title:"Супы",items:[
+
+
+
+{name:"Суп чечевичный",
+weight: "250 г",
+price:"400 ₽",
+img:"img/суп чечевичный.jpg"},
+
+
+{name:"Суп грибной",
+weight: "350 г",
+price:"450 ₽",
+img:"img/суп грибной.jpg"},
+
+
+{name:"Бозбаш из говядины",
+weight: "350 г",
+price:"550 ₽",
+img:"img/суп бозбаш из говядино.jpg"},
+
+
+{name:"Душбара",
+weight: "300 г",
+price:"500 ₽",
+img:"img/суп дюшбара.jpg"},
+
+{name:"Борщ",
+weight: "350 г",
+price:"400 ₽",
+img:"img/суп борщ.jpg"},
+
+{name:"Харчо",
+weight: "300 г",
+price:"400 ₽",
+img:"img/суп харчо.jpg"},
+
+{name:"Суп куриный",
+weight: "300 г",
+price:"400 ₽",
+img:"img/суп куриный.jpg"},
+
+
+{name:"Суп пити",
+weight: "300 г",
+price:"600 ₽",
+img:"img/суп пити.jpg"},
+
+
+
+{name:"Кюфта из говядины",
+weight: "350 г",
+price:"550 ₽",
+img:"img/суп кюфта.jpg"},
+
+
+{name:"Соютма из баранины",
+weight: "300 г",
+price:"550 ₽",
+img:"img/суп соютма из баранина.jpg"},
+
+
+
+{name:"Соютма из говядины",
+weight: "300 г",
+price:"550 ₽",
+img:"img/соютма из говядина.jpg"},
+
+
+
+{name:"Довга",
+weight: "0.5 л",
+price:"350 ₽",
+img:"img/довга 0.5.jpg"},
+
+
+
+{name:"Довга",
+weight: "1 л",
+price:"700 ₽",
+img:"img/довга 1 лтр.jpg"}
+
+
+
+
+
+
+]}
+],
+
+
+
+"Горячие блюдо":[{title:"Горячие блюдо",items:[
+
+{name:"Плов Азербайджанский",
+weight: "350 г",
+price:"600 ₽",
+img:"img/плов Азербайджанский.jpg"},
+
+
+
+
+{name:"Шах плов",
+weight: "2кг",
+price:"4500 ₽",
+img:"img/шах плов.jpg"},
+
+
+
+
+
+{name:"Плов Узбекский",
+weight: "350 г",
+price:"400 ₽",
+img:"img/узбекиский плов.jpg"},
+
+
+
+
+{name:"Жаркое из говядины",
+weight: "350 г",
+price:"650 ₽",
+img:"img/жаркое из говядины.jpg"},
+
+
+
+{name:"Жаркое из баранины",
+weight: "350 г",
+price:"650 ₽",
+img:"img/жаркое из баранина.jpg"},
+
+
+{name:"Жаркое из курицы",
+weight: "350 г",
+price:"550 ₽",
+img:"img/жаркое из куритца.jpg"},
+
+
+
+{name:"Джиз быз",
+weight: "350 г",
+price:"650 ₽",
+img:"img/дыз быз горячи бдюда.jpg"},
+
+
+
+{name:"Хашлама из говядины",
+weight: "350 г",
+price:"650 ₽",
+img:"img/хашлама из говядина.jpg"},
+
+
+
+{name:"Долма с виноградными листьями",
+weight: "250 г",
+price:"600 ₽",
+img:"img/долма винаградный лист.jpg"},
+
+
+
+
+{name:" Долма три сестра",
+weight: "350 г",
+price:"600 ₽",
+img:"img/три сестра долма.jpg"},
+
+
+
+
+
+{name:"Голубцы",
+weight: "300 г",
+price:"600 ₽",
+img:"img/голубцы.jpg"},
+
+
+
+
+{name:"Куриные котлеты",
+weight: "2 шт 200 г",
+price:"600 ₽",
+img:"img/куринный котлет.jpg"},
+
+
+
+
+{name:"Котлеты из телятины",
+weight: "2шт, 200 г",
+price:"650 ₽",
+img:"img/котлет из говядина.jpg"},
+
+
+
+
+{name:"Хинкали по Азербайджанский",
+weight: "300 г",
+price:"600 ₽",
+img:"img/хинкали по азербайджанский.jpg"},
+
+
+
+
+{name:"Хинкали по Грузински",
+weight: "1 шт",
+price:"120 ₽",
+img:"img/хинкали по грузинский.jpg"},
+
+
+
+{name:"Садж куриный",
+weight: "750 г",
+price:"1800 ₽",
+img:"img/садж куриный.jpg"},
+
+
+
+{name:"Садж говядина",
+weight: "750 г",
+price:"2300 ₽",
+img:"img/садж говядина.jpg"},
+
+{name:"Садж баранина",
+weight: "750 г",
+price:"2500 ₽",
+img:"img/садж из баранина.jpg"},
+
+{name:"Кутаб с мясом",
+weight: "80 г",
+price:"250 ₽",
+img:"img/кутаб с мясам.jpg"},
+
+{name:"Кутаб с сыром",
+weight: "80 г",
+price:"220 ₽",
+img:"img/кутаб  с сыром.jpg"},
+
+
+{name:"Кутаб с зеленью",
+weight: "80 г",
+price:"200 ₽",
+img:"img/кутаб с зеленю.jpg"},
+
+
+
+{name:"Цыпленок табака",
+weight: "1шт",
+price:"700 ₽",
+img:"img/цыпленок табака.jpg"},
+
+
+
+{name:"Тава кебаб",
+weight: "270 г",
+price:"600 ₽",
+img:"img/тава кебаб.jpg"},
+
+
+{name:"Телятина по строгановский",
+weight: "200 г",
+price:"700 ₽",
+img:"img/телятина по строгоновский.jpg"}
+
+
+]}
+],
+
+
+
+
+"Блюдо на углях":[{title:"Блюдо на углях",items:[
+
+{name:"Шашлык из говяжьей вырезки бастурма",
+weight: "200 г",
+price:"900 ₽",
+img:"img/говяжи вырызка бастурма.jpg"},
+
+
+
+{name:"Люля кебаб из курицы",
+weight: "180 г",
+price:"450 ₽",
+img:"img/люле кебаб из курица.jpg"},
+
+
+
+
+{name:"Люля кебаб из баранины",
+weight: "200 г",
+price:"650 ₽",
+img:"img/люле из баранина.jpg"},
+
+
+{name:"Люля кебаб из телятины",
+weight: "200 г",
+price:"650 ₽",
+img:"img/люле из телятина.jpg"},
+
+
+
+{name:"Шышлык из телячьей мякоти",
+weight: "200 г",
+price:"1000 ₽",
+img:"img/телятина мякт.jpg"},
+
+
+
+
+
+{name:"Шашлык из телячьей корейки",
+weight: "220 г",
+price:"1100 ₽",
+img:"img/телятина корейка.jpg"},
+
+
+
+
+
+{name:"Шашлык из телячьих ребрышек",
+weight: "200 г",
+price:"800 ₽",
+img:"img/телячьих ребрышки.jpg"},
+
+
+
+
+{name:"Шашлык из бараньей яблочка",
+weight: "200 г",
+price:"850 ₽",
+img:"img/баранина яблочка.jpg"},
+
+
+
+
+
+{name:"Шашлык из бараньей корейки",
+weight: "200 г",
+price:"850 ₽",
+img:"img/баранина корейка.jpg"},
+
+
+
+
+{name:"Шышлык из бараньей мякоти",
+weight: "200 г",
+price:"800 ₽",
+img:"img/баранина мякт.jpg"},
+
+
+
+
+
+{name:"Шашлык из бараньих семечка",
+weight: "200 г",
+price:"550 ₽",
+img:"img/баранина семичка.jpg"},
+
+
+
+
+
+{name:"Шашлык из курицы",
+weight: "200 г",
+price:"550 ₽",
+img:"img/шашлык куринный.jpg"},
+
+
+
+
+
+{name:"Куриные крылышки",
+weight: "200 г",
+price:"450 ₽",
+img:"img/крылышки куриные.jpg"},
+
+
+
+
+{name:"Ассорти Шеф кебаб на 2 персон",
+weight: "900 г",
+price:"4250 ₽",
+img:"img/шашлык на 2 персон.jpg"},
+
+
+
+
+{name:"Ассорти Шеф кебаб на 4 персон",
+weight: "1800 г",
+price:"8500 ₽",
+img:"img/шашлык на 4 персон.jpg"},
+
+
+
+
+{name:"Шашлык из индейки",
+weight: "250 г",
+price:"850 ₽",
+img:"img/шашлык из индейки.jpg"},
+
+
+
+
+{name:"Шашлык из бараньего сердца",
+weight: "140 г",
+price:"500 ₽",
+img:"img/Шашлык из бараньего сердца.jpg"},
+
+
+
+
+{name:"Шашлык из бараньей печени с курдюком",
+weight: "150 г",
+price:"500 ₽",
+img:"img/Шашлык из бараньей печени с курдюком.jpg"},
+
+
+
+
+
+{name:"Шашлык из бараньих почек",
+weight: "160 г",
+price:"500 ₽",
+img:"img/бараньей почки.jpg"},
+
+
+
+
+{name:"Корейка тандыр",
+weight: "1500 г",
+price:"4000 ₽",
+img:"img/корейка тандыр.jpg"},
+
+
+
+
+
+
+
+
+{name:"Шашлык из грибов",
+weight: "150 г",
+price:"300 ₽",
+img:"img/шашлык из грибов.jpg"},
+
+
+
+{name:"Шашлык из баклажанов с курдюком",
+weight: "120 г",
+price:"250 ₽",
+img:"img/шашылк баклжана с курдюком.jpg"},
+
+
+
+
+{name:"Шашлык из свежих помидоров",
+weight: "100 г",
+price:"150 ₽",
+img:"img/шашлык из помидоров.jpg"},
+
+
+{name:"Шашлык из сладкого перца",
+weight: "100 г",
+price:"150 ₽",
+img:"img/шашлык из сладкого перца.jpg"},
+
+
+{name:"Шашлык из острого перца",
+weight: "2 шт",
+price:"100 ₽",
+img:"img/шашлык острый перец.jpg"},
+
+
+
+
+
+
+
+{name:"Шашлык из рыба Дорада",
+weight: "1 шт",
+price:"1100 ₽",
+img:"img/Дорада.jpg"},
+
+{name:"Шашлык из рыба Сибас",
+weight: "1 шт",
+price:"1100 ₽",
+img:"img/сибас.jpg"},
+
+{name:"Стейк лосось",
+weight: "1 шт",
+price:"1300 ₽",
+img:"img/шашлык лосось семга.jpg"},
+
+
+{name:"Креветка на мангале",
+weight: "200 г",
+price:"950 ₽",
+img:"img/креветка на мангале.jpg"},
+
+
+{name:"Форель речная на мангале",
+weight: "1 шт",
+price:"1100 ₽",
+img:"img/форель.jpg"},
+
+
+{name:"Шашлык из картофеля с курдюком",
+weight: "160 г",
+price:"400 ₽",
+img:"img/картошка с кюрдюком.jpg"},
+
+
+
+{name:"Овощи на гриле",
+weight: "180 г",
+price:"550 ₽",
+img:"img/овощи на гриле.jpg"}
+
+
+]}
+],
+
+
+"Бар":[
+{
+title:"Безалькогольные коктейлы и лимонады",
+items:[
+
+{name:"Малина-мята лимонад",
+weight: "400 мл, 1000 мл",
+price:"470 ₽, 990 ₽",
+img:""},
+
+
+
+
+{name:"Имбирный лимонад",
+weight: "400 мл, 1000 мл",
+price:"470 ₽, 990 ₽",
+img:""},
+
+
+
+{name:"Классический лимонад",
+weight: "400 мл, 1000 мл",
+price:"470 ₽, 990 ₽",
+img:""},
+
+
+{name:"Манго маракуйя лимонад",
+weight: "400 мл, 1000 мл",
+price:"470 ₽, 990 ₽",
+img:""},
+
+
+{name:"Ягодный лимонад",
+weight: "400 мл, 1000 мл",
+price:"470 ₽, 990 ₽",
+img:""},
+
+
+{name:"Мохито безалкогольный",
+weight: "400 мл, 1000 мл",
+price:"470 ₽, 990 ₽",
+img:""},
+
+
+{name:"Морс",
+weight: "200 мл, 1000 мл",
+price:"100 ₽, 475 ₽",
+img:""},
+
+
+{name:"Кола",
+weight: "330 мл",
+price:"245₽",
+img:""},
+
+
+{name:"Фанта",
+weight: "330 мл",
+price:"245 ₽",
+img:""},
+
+
+{name:"Спрайт",
+weight: "330 мл",
+price:"245₽",
+img:""},
+
+
+{name:"Сок ассорти",
+weight: "200 мл, 1000 мл",
+price:"150 ₽, 450 ₽",
+img:""},
+
+
+{name:"Дюшес",
+weight: "500 мл",
+price:"275 ₽",
+img:""},
+
+
+{name:"Тархун",
+weight: "500 мл",
+price:"275 ₽",
+img:""},
+
+
+{name:"Ред-Бул",
+weight: "250 мл, 355 мл",
+price:"350 ₽, 750 ₽",
+img:""},
+
+
+{name:"Чай черный",
+weight: "500 мл",
+price:"250 ₽",
+img:""},
+
+
+{name:"Чай зеленый",
+weight: "500 мл",
+price:"400 ₽",
+img:""},
+
+
+{name:"Чай зеленый с жасмином",
+weight: "500 мл",
+price:"500 ₽",
+img:""},
+
+
+{name:"Фруктовый чай",
+weight: "500 мл",
+price:"700 ₽",
+img:""},
+
+
+{name:"Облепиховой чай",
+weight: "500 мл",
+price:"700 ₽",
+img:""},
+
+
+{name:"Имбирный чай",
+weight: "500 мл",
+price:"700 ₽",
+img:""},
+
+
+{name:"Молочный улун",
+weight: "500 мл",
+price:"700 ₽",
+img:""},
+
+
+{name:"Тоник",
+weight: "250 мл",
+price:"245 ₽",
+img:""},
+
+
+{name:"Багдан компот домашний",
+weight: "1000 мл",
+price:"400₽",
+img:""},
+
+
+{name:"Самовар",
+weight: "3000 мл",
+price:"1650₽",
+img:""}
+]},
+
+
+
+
+
+
+{
+title:"Вода",
+items:[
+
+{name:"Легенда",
+weight: "0.5 мл",
+price:"100 ₽",
+img:""},
+
+
+{name:"Сан Карино Аква",
+weight: "0.5 мл",
+price:"250 ₽",
+img:""},
+
+{name:"Боржоми с/г",
+weight: "0.5 мл",
+price:"300 ₽",
+img:""},
+
+
+{name:"Рычал-су с/г",
+weight: "0.5 мл",
+price:"200 ₽",
+img:""},
+
+
+{name:"Сираб c/г",
+weight: "0.5 мл",
+price:"250 ₽",
+img:""},
+
+
+{name:"Исти су c/г",
+weight: "0.5 мл",
+price:"250 ₽",
+img:""}
+]},
+
+
+
+{
+title:"Кофе",
+items:[
+
+
+{name:"Эспрессо",
+weight: "40 мл",
+price:"200 ₽",
+img:""},
+
+
+{name:"Американо",
+weight: "150 мл",
+price:"250 ₽",
+img:""},
+
+
+{name:"Капучино",
+weight: "150 мл",
+price:"350 ₽",
+img:""},
+
+
+{name:"Латте",
+weight: "200 мл",
+price:"450 ₽",
+img:""},
+
+
+{name:"Горячий молоко",
+weight: "150 мл",
+price:"100 ₽",
+img:""}
+]},
+
+
+
+
+{
+title:"Свежевыжатый сок",
+items:[
+
+
+{name:"Ананасовый",
+weight: "200 мл",
+price:"600 ₽",
+img:""},
+
+
+{name:"Гранатовый",
+weight: "200 мл",
+price:"800 ₽",
+img:""},
+
+
+{name:"Морковный",
+weight: "200 мл",
+price:"350  ₽",
+img:""},
+
+
+{name:"Яблочный",
+weight: "200 мл",
+price:"350 ₽",
+img:""},
+
+
+{name:"Апельсиновый",
+weight: "200 мл",
+price:"350 ₽",
+img:""},
+
+
+{name:"Грейпфрутовый",
+weight: "200 мл",
+price:"350 ₽",
+img:""},
+
+
+{name:"Лимонный",
+weight: "200 мл",
+price:"350 ₽",
+img:""}
+]},
+
+
+
+
+
+
+
+
+{
+title:"Алкогольные коктейли",
+items:[
+
+{name:"Секс на пляж",
+weight: "300 мл",
+price:"650 ₽",
+img:""},
+
+
+{name:"Маргарити",
+weight: "120 мл",
+price:"650 ₽",
+img:""},
+
+
+{name:"Май Тай",
+weight: "250 мл",
+price:"650 ₽",
+img:""},
+
+
+
+{name:"Лонг Айлонд",
+weight: "300 мл",
+price:"650 ₽",
+img:""},
+
+
+
+{name:"Апероль Шприц",
+weight: "300 мл",
+price:"650 ₽",
+img:""},
+
+
+{name:"Голубая Лaгуна",
+weight: "300 мл",
+price:"650 ₽",
+img:""},
+
+
+{name:"Мартини Фиерок & Тоник",
+weight: "200 мл",
+price:"650 ₽",
+img:""},
+
+
+{name:"Пино Колада",
+weight: "300 мл",
+price:"650 ₽",
+img:""},
+
+
+{name:"B-52",
+weight: "50 мл",
+price:"650 ₽",
+img:""},
+
+
+{name:"Минт Смеш",
+weight: "150 мл",
+price:"650 ₽",
+img:""},
+
+
+{name:"Негрони",
+weight: "150 мл",
+price:"650 ₽",
+img:""},
+
+
+{name:"Клубничный Дайкири",
+weight: "150 мл",
+price:"650 ₽",
+img:""},
+
+
+{name:"Дайкири",
+weight: "150 мл",
+price:"650 ₽",
+img:""},
+
+
+{name:"Мохито",
+weight: "350 мл",
+price:"650 ₽",
+img:""},
+
+
+{name:"Мохито Клубника",
+weight: "350 мл",
+price:"650 ₽",
+img:""}]},
+
+
+
+
+
+{
+title:"Водка",
+items:[
+
+
+{name:"Онегин",
+weight: "50 мл,500 мл",
+price:"180 ₽,1800 ₽",
+img:""},
+
+
+
+{name:"Белуга Ноба",
+weight: "50 мл, 500 мл",
+price:"230 ₽, 2300 ₽",
+img:""},
+
+
+{name:"Царская Золотая",
+weight: "50 мл, 500 мл",
+price:" 130 ₽, 1300 ₽",
+img:""},
+
+
+{name:"Царская Оригинальная",
+weight: "50 мл, 500 мл",
+price:"130 ₽, 1300 ₽",
+img:""},
+
+
+{name:"Белое Золото Серебро",
+weight: "50 мл, 500 мл",
+price:"130 ₽, 1300 ₽",
+img:""},
+
+
+{name:"Чистые Росы",
+weight: "50 мл, 500 мл",
+price:"230 ₽,2300 ₽",
+img:""},
+
+
+{name:"Мамонт",
+weight: "50 мл, 500 мл",
+price:"230 ₽, 2300 ₽",
+img:""}]},
+
+
+
+{
+title:"Коньяк",
+items:[
+
+
+{name:"Старый Баку",
+weight: "50 мл, 500 мл",
+price:"180 ₽, 1800 ₽",
+img:""},
+
+
+{name:"Олд Баку",
+weight: "50 мл, 500 мл",
+price:"450 ₽, 5500 ₽",
+img:""},
+
+
+{name:"Коньяк Кенигсберг",
+weight: "50 мл, 500 мл",
+price:"180 ₽, 1800 ₽",
+img:""},
+
+
+{name:"Арарат",
+weight: "50 мл, 500 мл",
+price:"180 ₽, 1800 ₽",
+img:""},
+
+
+{name:"Хеннесси vs",
+weight: "50 мл, 700 мл",
+price:"600 ₽, 8500 ₽",
+img:""},
+
+
+{name:"Ширван",
+weight: "50 мл, 700 мл",
+price:"500 ₽, 6500 ₽",
+img:""},
+
+
+{name:"Старейшина 7 лет",
+weight: " 50 мл, 500 мл",
+price:"150 ₽, 1300 ₽",
+img:""}]},
+
+{
+title:"Виски",
+items:[
+
+
+{name:"Джим Бим",
+weight: "50 мл, 500 мл",
+price:"350 ₽, 3500 ₽",
+img:""},
+
+
+{name:"Джек Дэниелс",
+weight: "50 мл, 700 мл",
+price:"450 ₽, 5200 ₽",
+img:""},
+
+
+{name:"Чивас 12 лет",
+weight: "50 мл, 500 мл",
+price:"485 ₽, 6800 ₽",
+img:""},
+
+
+{name:"Чивас 18 лет",
+weight: "50 мл, 700 мл",
+price:"1085 ₽, 15200 ₽",
+img:""},
+
+
+{name:"Макаллан 12 лет",
+weight: "50 мл, 700 мл",
+price:"1150 ₽, 16000 ₽",
+img:""},
+
+
+{name:"Джемисон",
+weight: "50 мл, 700 мл",
+price:"350 ₽, 4900 ₽",
+img:""}]},
+
+
+
+{
+title:"Пиво Разливное",
+items:[
+
+
+{name:"Жигули",
+weight: "0.5 л",
+price:"250 ₽",
+img:""}]},
+
+
+{
+title:"Вино Красная",
+items:[
+
+
+{name:"Матраса сухое Баку",
+weight: "150мл, 700 мл",
+price:"300 ₽, 1950 ₽",
+img:""},
+
+
+
+{name:"Девичья башня полу-сухое",
+weight: "150 мл, 700 мл",
+price:"300 ₽, 1950 ₽",
+img:""},
+
+
+
+{name:"Чинар полу-сладкое",
+weight: "150 мл, 700 мл",
+price:"300 ₽, 1950 ₽",
+img:""},
+
+{name:"Мейсари Махмари",
+weight: "700 мл",
+price:"3800 ₽",  
+img:""},
+
+
+{name:"Вино Гранат",
+weight: "700 мл",
+price:"2200 ₽",  
+img:""},
+
+
+{name:"Киндзмараули грузинское полу-сладкое",
+weight: "150 мл, 700 мл",
+price:"300 ₽, 1700 ₽",
+img:""},
+
+
+{name:"Гянджинские матраса в керамическом ",
+weight: "700 мл",
+price:"3500 ₽",
+img:""},
+
+
+{name:"Джейран матраса",
+weight: "700 мл",
+price:"1750 ₽",
+img:""}]},
+
+
+
+{
+title:"Вино Белые",
+items:[
+
+
+{name:"Савалан Шардонай",
+weight: "700 мл",
+price:"3650 ₽",
+img:""},
+
+
+{name:"Садылды сухое",
+weight: "150 мл, 700 мл",
+price:"300 ₽, 1950 ₽",
+img:""},
+
+
+{name:"Семь Красавиц полу-сладкое",
+weight: "150 мл,700 мл",
+price:"300 ₽, 1950 ₽",
+img:""},
+
+
+{name:"Пинот Григорио Кантин Франциско Минини",
+weight: "150 мл, 700 мл",
+price:"600 ₽, 3000 ₽",
+img:""},
+
+
+{name:"Совиньон-блан",
+weight: "700 мл",
+price:"4350 ₽",
+img:""},
+
+
+{name:"Цинандалии Грузинское сухое",
+weight: "150 мл, 700 мл",
+price:"300 ₽ , 1700 ₽",
+img:""}]},
+
+
+
+{
+title:"Текила &  Ликеры ",
+items:[
+
+
+{name:"Патрон Силвер",
+weight: "50 мл, 750 мл",
+price:"750 ₽, 10000 ₽",
+img:""},
+
+
+{name:"Текила Ольмека",
+weight: "50 мл, 750 мл",
+price:"470 ₽, 6580 ₽",
+img:""},
+
+
+{name:"Егермейстер",
+weight: "50 мл, 1000 мл",
+price:"400 ₽, 5500 ₽",
+img:""},
+
+
+{name:"Самбука",
+weight: "50 мл, 1000 мл",
+price:"350 ₽, 5500 ₽",
+img:""}]},
+
+
+{
+title:"Шампонское",
+items:[
+
+
+{name:"Мартини Бьянко",
+weight: "100 мл, 1000 мл",
+price:"350 ₽, 3150₽",
+img:""},
+
+
+{name:"Мартини Россо",
+weight: "100 мл, 1000 мл",
+price:"350 ₽, 3150₽",
+img:""},
+
+
+{name:"Мартини Фиеро",
+weight: "100 мл, 1000 мл",
+price:"350 ₽, 3150₽",
+img:""},
+
+
+{name:"Абрау Дюрсо",
+weight: "750 мл",
+price:"1250₽",
+img:""},
+
+
+{name:"Мартини Брют",
+weight: "750 мл",
+price:"3200₽",
+img:""},
+
+
+{name:"Мартини Бьянко",
+weight: "750 мл",
+price:"3700₽",
+img:""},
+
+
+{name:"Мартини Просекко",
+weight: "750 мл",
+price:"3700₽",
+img:""},
+
+
+{name:"Просекко бокал",
+weight: "100 мл",
+price:"450₽",
+img:""}
+]}
+,
+
+
+{
+title:"Джинн",
+items:[
+{name:"Бомбей Сапфир",
+weight:"50 мл, 1000 мл",
+price:"450 ₽, 9000 ₽",
+img:""}]}
+],
+
+
+
+
+
+
+
+
+"Кальян":[{title:"кальян",items:[
+{name:"Тропический микс",
+price:"3000 ₽",
+img:"img/шекербура бакинская.jpg"},
+
+
+
+{name:"Грейпфрут",
+price:"3000 ₽",
+img:"img/шекербура бакинская.jpg"},
+
+
+{name:"На молоке",
+price:"3000 ₽",
+img:"img/шекербура бакинская.jpg"},
+
+
+
+{name:"На воде",
+price:"2500 ₽",
+img:"img/шекербура бакинская.jpg"},
+
+
+
+{name:"На белом или красном вино",
+price:"3000 ₽",
+img:"img/шекербура бакинская.jpg"},
+
+
+
+
+
+{name:"Ананас",
+price:"3000 ₽",
+img:"img/шоколадная бомба.jpg"}]}
+],
+
+
+
+
+
+
+
+
+
+
+
+"Десерт":[{title:"десерт",items:[
+{name:"Ассорти фруктов",
+weight:"900гр",
+price:"1300 ₽",
+img:"img/шекербура бакинская.jpg"},
+
+
+{name:"Ананас",
+weight:"650гр",
+price:"1000 ₽",
+img:"img/шекербура бакинская.jpg"},
+
+
+
+{name:"Шекербура",
+weight:"1 шт/40 гр",
+price:"250 ₽",
+img:"img/шекербура бакинская.jpg"},
+
+
+{name:"Джевиз Баклава",
+weight:"4 шт",
+price:"500 ₽",
+img:"img/шекербура бакинская.jpg"},
+
+
+{name:"Хавуч Дилими Турецкий",
+weight:"1 шт",
+price:"500₽",
+img:"img/шекербура бакинская.jpg"},
+
+
+{name:"Пахлава Баку",
+weight:"2 шт/70 гр",
+price:"250 ₽",
+img:"img/шекербура бакинская.jpg"},
+
+
+{name:"Фистик Сарма Турецкий",
+weight:"4 шт",
+price:"500 ₽",
+img:"img/шекербура бакинская.jpg"},
+
+
+{name:"Балон Баклава",
+weight:"4 шт",
+price:"500 ₽",
+img:"img/шекербура бакинская.jpg"},
+
+
+{name:" Варенье Инжир",
+weight:"160 гр",
+price:"350 ₽",
+img:"img/шекербура бакинская.jpg"},
+
+
+{name:" Варенье Вишня",
+weight:"160 гр",
+price:"350 ₽",
+img:"img/шекербура бакинская.jpg"},
+
+
+{name:" Варенье Белая Черешня",
+weight:"160 гр",
+price:"350 ₽",
+img:"img/овощная нарезка.jpeg"},
+
+
+{name:" Варенье Кизил",
+weight:"160 гр",
+price:"350 ₽",
+img:"img/шекербура бакинская.jpg"},
+
+
+{name:" Варенье Айва",
+weight:"160 гр",
+price:"350 ₽",
+img:"img/шекербура бакинская.jpg"},
+
+
+{name:" Варенье ореховый",
+weight:"160 гр",
+price:"350 ₽",
+img:"img/шекербура бакинская.jpg"},
+
+
+{name:"Мороженое клубничный",
+price:"300 ₽",
+img:"img/шекербура бакинская.jpg"},
+
+
+
+{name:"Мороженое ванильный",
+price:"300 ₽",
+img:"img/шекербура бакинская.jpg"},
+
+
+
+
+{name:"Мороженое шоколадный",
+price:"300 ₽",
+weight:"1штг",
+img:"img/шоколадная бомба.jpg"}
+]}
+]};
+
+
+
+
+
+
+
+
+
+
+function openPage(p){home.classList.add('hidden');document.getElementById(p).classList.remove('hidden')}
+function goHome(){document.querySelectorAll('.container').forEach(e=>e.classList.add('hidden'));home.classList.remove('hidden')}
+function goMenu(){dishes.classList.add('hidden');menu.classList.remove('hidden')}
+
+function openCategory(cat){
+menu.classList.add('hidden');dishes.classList.remove('hidden');
+categoryTitle.innerText=cat;dishList.innerHTML='';tabs.innerHTML='';
+
+menuData[cat].forEach((s,i)=>{
+tabs.innerHTML+=`<div class="tab ${i==0?'active':''}" onclick="scrollToSection(${i})">${s.title}</div>`;
+dishList.innerHTML+=`
+<div id="section-${i}">
+<h3 class="section-title">${s.title}</h3>
+<div class="dish-grid">
+${s.items.map(item=>`
+<div class="dish-card" onclick="openDish(\`${item.name}\`,\`${item.price}\`,\`${item.img}\`,\`${item.desc}\`,\`${item.weight}\`)">
+<img src="${item.img}">
+
+<div class="dish-info">
+  <div>
+    <h3>${item.name}</h3>
+    <small style="color:#aaa;font-size:13px;">
+      ${item.weight || ""}
+    </small>
+  </div>
+  <p>${item.price}</p>
+</div>
+
+</div>`).join('')}
+</div>`;
+});
+}
+
+function scrollToSection(i){
+document.getElementById(`section-${i}`).scrollIntoView({behavior:'smooth'});
+document.querySelectorAll('.tab').forEach(e=>e.classList.remove('active'));
+document.querySelectorAll('.tab')[i].classList.add('active');
+}
+
+
+function openDish(n,p,i,d,w){
+  modal.classList.remove('hidden');
+
+  modalTitle.innerText = n;
+  modalPrice.innerText = p;
+  modalImg.src = i;
+
+ if(d && !categoryTitle.innerText.includes('Выпечки')){
+  modalDesc.style.display='block';
+  modalDesc.innerText="Состав: "+d;
+}else{
+  modalDesc.style.display='none';
+}
+
+
+
+ if(w){
+    modalWeight.style.display = 'block';
+    modalWeight.innerText = "Вес: " + w;
+}else{
+    modalWeight.style.display = 'none';
+}
+
+
+
+}function closeModal(){modal.classList.add('hidden')}
+
+
+
+const oldOpenPage=openPage;
+openPage=function(p){
+oldOpenPage(p);
+pushState(p);
+}
+
+const oldOpenDish=openDish;
+openDish=function(n,p,i,d,w){
+oldOpenDish(n,p,i,d,w);
+pushState(n);
+}
+</script>
+
+<a href="https://wa.me/79916944949?text=Здравствуйте! Хочу сделать заказ"
+   class="whatsapp-btn"
+   target="_blank">
+   💬 Заказать
+</a>
+
+</body>
+</html>
