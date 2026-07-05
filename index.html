@@ -543,7 +543,7 @@ img:"img/маслины.jpg"},
 
 {name:"Ассорти солений",
 weight: "200 г",
-price:"270₽"",
+price:"270₽",
 img:"img/ассорти-соленья.jpg"},
 
 {name:"Мангал салат",
@@ -2319,7 +2319,18 @@ function openCategory(cat){
 menu.classList.add('hidden');dishes.classList.remove('hidden');
 categoryTitle.innerText=cat;dishList.innerHTML='';tabs.innerHTML='';
 
-menuData[cat].forEach((s,i)=>{
+
+
+
+if (!menuData[cat]) {
+    console.error("Категория не найдена:", cat);
+    return;
+}
+
+menuData[cat].forEach(
+
+
+(s,i)=>{
 tabs.innerHTML+=`<div class="tab ${i==0?'active':''}" onclick="scrollToSection(${i})">${s.title}</div>`;
 dishList.innerHTML+=`
 <div id="section-${i}">
